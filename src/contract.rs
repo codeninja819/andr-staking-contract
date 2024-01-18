@@ -6,7 +6,9 @@ use andromeda_std::{
 };
 #[cfg(not(feature = "library"))]
 use cosmwasm_std::entry_point;
-use cosmwasm_std::{ensure, to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Response};
+use cosmwasm_std::{
+    ensure, to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Response, StakingMsg,
+};
 use cw2::set_contract_version;
 use cw_utils::PaymentError;
 
@@ -73,7 +75,7 @@ pub fn handle_execute(ctx: ExecuteContext, msg: ExecuteMsg) -> Result<Response, 
 }
 
 pub mod execute {
-    use cosmwasm_std::{coin, BankMsg, Event, StakingMsg};
+    use cosmwasm_std::{coin, BankMsg, Event};
 
     use super::*;
 
